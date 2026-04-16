@@ -2,53 +2,72 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>dwba4-semana-04-pt3037347</title>
+    <title>dwba4-semana-06-pt3037347</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-     <header>
-        <nav style="text-align: right;">
-            <a href="index.html">HOME</a> | <a href="eventos.html">EVENTOS</a> | <a href="contato.html">CONTATO</a> | <a href="sobre.html">SOBRE</a> | <a href="login.html">ENTRAR</a>
-        </nav>
-        <img src="img/Logo.jpg" alt="Instituto Federal São Paulo" width="300">
-    </header>
+<header>
+    <img src="img/Logo.jpg" alt="IFSP" class="logo">
 
-    <h4>Cursos</h4>
-    <ul>
-        <li><a href="ads.html">Análise e Desenvolvimento de Sistemas</a></li>
-        <li><a href="engproducao.html">Engenharia de Produção</a></li>
-        <li><a href="gestaoti.html">Gestão em Tecnologia da Informação</a></li>
-        <li><a href="letras.html">Letras</a></li>
-        <li><a href="gestaopublica.html">Gestão Pública</a></li>
-    </ul>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">HOME</a></li>
 
-    <h4>Eventos</h4>
-    
-    <section>
-        <img src="img/SEJA_RARO.jpg" alt="Palestra Seja Raro com Augusto Aielo" width="400">
-        <p>Aniversário do IFSP - Pirituba - Palestra Augusto Aielo</p>
-    </section>
+            <li class="dropdown">
+                <a href="#">CURSOS</a>
+                <div class="dropdown-content">
+                    <a href="ads.html">ADS</a>
+                    <a href="engproducao.html">Eng. Produção</a>
+                    <a href="gestaoti.html">Gestão TI</a>
+                    <a href="gestaopublica.html">Gestão Pública</a>
+                    <a href="letras.html">Letras</a>
+                </div>
+            </li>
 
-    <section>
-        <h2>Sobre a Biblioteca</h2>
-        <img src="img/library.jpeg" alt="Biblioteca" width="100">
-        <h3>Conheça os novos títulos disponíveis na nossa biblioteca</h3>
-        <p><b>Publicado: Quarta-feira, 14 de agosto de 2019</b></p>
-    </section>
+            <li><a href="eventos.html">EVENTOS</a></li>
+            <li><a href="contato.html">CONTATO</a></li>
+            <li><a href="sobre.html">SOBRE</a></li>
+            <li><a href="login.html">ENTRAR</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <section>
-        <h2>Conheça o SUAP</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/yVbOcB1ryh0?si=v4dktrrd0ryC9nW0" title="YouTube Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </section>
+<main>
 
-    <br>
+<h2>Cursos</h2>
+<div class="grid">
+    <div class="card"><a href="ads.html">ADS</a></div>
+    <div class="card"><a href="engproducao.html">Engenharia</a></div>
+    <div class="card"><a href="gestaoti.html">Gestão TI</a></div>
+</div>
 
-    <footer>
-        <a href="#"><img src="img/MoveTop.png" alt="Voltar ao topo" width="40"></a>
-        <a href="https://www.facebook.com/ifsppirituba/?locale=pt_BR" target="_blank"><img src="img/facebook.png" alt="Facebook" width="40"></a>
-        <p>IFSP - Câmpus Pirituba - Av. Mutinga, 951 - Jardim Santo Elias - CEP: 05110-000 - São Paulo/SP - Contato: (011) 2504-0100</p>
-    </footer>
+<h2>Eventos</h2>
+
+<section class="card">
+    <img src="img/SEJA_RARO.jpg" width="300">
+    <p>Palestra Augusto Aielo</p>
+</section>
+
+<section class="card">
+    <h3>Biblioteca</h3>
+    <img src="img/library.jpeg" width="100">
+    <p>Novos títulos disponíveis</p>
+</section>
+
+<section class="card">
+    <h3>SUAP</h3>
+    <iframe width="300" src="https://www.youtube.com/embed/yVbOcB1ryh0"></iframe>
+</section>
+
+</main>
+
+<footer>
+    <a href="#"><img src="img/MoveTop.png" width="40"></a>
+    <a href="#"><img src="img/facebook.png" width="40"></a>
+    <p>IFSP - Câmpus Pirituba</p>
+</footer>
 
 </body>
 </html>
