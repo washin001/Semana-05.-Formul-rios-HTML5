@@ -2,39 +2,42 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Entrar</title>
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Login</title>
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header>
-        <nav style="text-align: right;">
-            <a href="index.html">HOME</a> | <a href="eventos.html">EVENTOS</a> | <a href="contato.html">CONTATO</a> | <a href="sobre.html">SOBRE</a> | <a href="entrar.html">ENTRAR</a>
-        </nav>
-        <img src="img/Logo.jpg" alt="Instituto Federal São Paulo" width="300">
-    </header>
+<header>
+    <img src="img/Logo.jpg" class="logo">
 
-    <h2>Entrar</h2>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="eventos.html">EVENTOS</a></li>
+            <li><a href="contato.html">CONTATO</a></li>
+            <li><a href="sobre.html">SOBRE</a></li>
+            <li><a href="login.html">ENTRAR</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <form action="#" method="post">
-        <label for="usuario">Usuário</label>
-        <input type="text" id="usuario" name="usuario" required><br><br>
+<main class="container">
 
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" name="senha" required><br><br>
+<form class="card">
+<h2>Login</h2>
 
-        <input type="submit" value="Entrar">
-        <a href="#">Esqueci a senha</a> 
-    </form>
+<input type="text" placeholder="Usuário" required>
+<input type="password" placeholder="Senha" required>
 
-    <br><br><br>
+<button>Entrar</button>
+</form>
 
-    <footer>
-        <a href="https://www.facebook.com/ifsppirituba/?locale=pt_BR" target="_blank">
-            <img src="img/facebook.png" alt="Facebook" width="40">
-        </a>
-        <p>IFSP - Câmpus Pirituba - Av. Mutinga, 951 - Jardim Santo Elias - CEP: 05110-000 - São Paulo/SP - Contato: (011) 2504-0100</p>
-    </footer>
+</main>
+
+<footer>
+<img src="img/facebook.png" width="40">
+</footer>
 
 </body>
 </html>
