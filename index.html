@@ -2,89 +2,369 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dwba4-semana-07-pt3037347</title>
     <link rel="icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ========== RESET E CONFIGURAÇÕES GERAIS ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #1a2a3a;
+            line-height: 1.5;
+        }
+
+        /* ========== GRID LAYOUT PRINCIPAL ========== */
+        /* Container principal usando GRID */
+        .app-container {
+            display: grid;
+            grid-template-areas:
+                "header"
+                "main"
+                "footer";
+            grid-template-columns: 1fr;
+            gap: 0;
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* HEADER - área do cabeçalho */
+        .header-area {
+            grid-area: header;
+        }
+
+        /* MAIN - área do conteúdo principal */
+        .main-area {
+            grid-area: main;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            width: 100%;
+        }
+
+        /* FOOTER - área do rodapé */
+        .footer-area {
+            grid-area: footer;
+        }
+
+        /* ========== MENU DE NAVEGAÇÃO (elementos anteriores mantidos) ========== */
+        .topnav {
+            background-color: #004d7c;
+            overflow: visible;
+            position: relative;
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .menu li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .menu li a:hover {
+            background-color: #003a5c;
+        }
+
+        .menu li.active a {
+            background-color: #ff8c42;
+            color: #004d7c;
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 260px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: #004d7c;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ff8c42;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .menu li.right {
+            margin-left: auto;
+        }
+
+        /* Banner com imagem */
+        .banner {
+            background-color: #003a5c;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .logo-banner {
+            max-width: 200px;
+            height: auto;
+        }
+
+        /* ========== GRID PARA NOTÍCIAS (CARDS) ========== */
+        /* Grid Layout aplicado na seção de notícias */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Cards de notícias estilizados */
+        .news-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #e9ecef;
+        }
+
+        .news-card h3 {
+            font-size: 1.2rem;
+            padding: 1rem 1rem 0.5rem 1rem;
+            color: #004d7c;
+        }
+
+        .news-card p {
+            padding: 0 1rem 1.2rem 1rem;
+            color: #4a627a;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        /* ========== SEÇÃO DE VÍDEO ========== */
+        .video-section {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0f4fa 0%, #ffffff 100%);
+            border-radius: 32px;
+        }
+
+        .video-section h2 {
+            color: #004d7c;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .video-section iframe {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            background-color: #1a2a3a;
+            color: #b0c4de;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .site-footer img {
+            margin-bottom: 10px;
+            transition: opacity 0.2s;
+        }
+
+        .site-footer img:hover {
+            opacity: 0.8;
+        }
+
+        .site-footer p {
+            font-size: 0.85rem;
+        }
+
+        /* ========== RESPONSIVIDADE ========== */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+            }
+            
+            .menu li.right {
+                margin-left: 0;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: #003a5c;
+            }
+            
+            .dropdown-content a {
+                color: white;
+                background-color: #003a5c;
+                padding-left: 30px;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            
+            .main-area {
+                padding: 1.5rem;
+            }
+            
+            .news-grid {
+                gap: 1.2rem;
+            }
+            
+            .video-section {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .news-card h3 {
+                font-size: 1rem;
+            }
+            
+            .video-section iframe {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
+<div class="app-container">
+    
+    <!-- Área do cabeçalho com menu e banner -->
+    <div class="header-area">
+        <nav class="topnav">
+            <ul class="menu">
+                <li class="active"><a href="index.html">HOME</a></li>
+                <li><a href="eventos.html">EVENTOS</a></li>
+                <li><a href="contato.html">CONTATO</a></li>
 
-    <nav class="topnav">
-        <ul class="menu">
-            <li class="active"><a href="index.html">HOME</a></li>
-            <li><a href="eventos.html">EVENTOS</a></li>
-            <li><a href="contato.html">CONTATO</a></li>
+                <li class="dropdown">
+                    <a href="#">CURSOS</a>
+                    <div class="dropdown-content">
+                        <a href="ads.html">Análise e Desenvolvimento de Sistemas</a>
+                        <a href="engproducao.html">Engenharia de Produção</a>
+                        <a href="gestaoti.html">Gestão de TI</a>
+                        <a href="gestaopublica.html">Gestão Pública</a>
+                        <a href="letras.html">Letras</a>
+                    </div>
+                </li>
 
-            <li class="dropdown">
-                <a href="#">CURSOS</a>
-                <div class="dropdown-content">
-                    <a href="ads.html">Análise e Desenvolvimento de Sistemas</a>
-                    <a href="engproducao.html">Engenharia de Produção</a>
-                    <a href="gestaoti.html">Gestão de TI</a>
-                    <a href="gestaopublica.html">Gestão Pública</a>
-                    <a href="letras.html">Letras</a>
-                </div>
-            </li>
+                <li><a href="login.html">ENTRAR</a></li>
+                <li class="right"><a href="sobre.html">SOBRE</a></li>
+            </ul>
+        </nav>
 
-            <li><a href="login.html">ENTRAR</a></li>
-            <li class="right"><a href="sobre.html">SOBRE</a></li>
-        </ul>
-    </nav>
-
-    <div class="banner">
-        <img src="img/Logo.jpg" alt="IFSP" class="logo-banner">
+        <div class="banner">
+            <img src="img/Logo.jpg" alt="IFSP" class="logo-banner">
+        </div>
     </div>
 
-</header>
+    <!-- Área principal do conteúdo COM GRID LAYOUT aplicado -->
+    <main class="main-area">
+        
+        <!-- Grid de notícias - utilizando CSS Grid Layout -->
+        <section class="news-grid">
+            <article class="news-card">
+                <img src="img/eleicoes.jpg" alt="Eleições IFSP">
+                <h3>Radar IFSP: informe-se sobre as eleições do dia 13 de outubro</h3>
+                <p>Todos os alunos e servidores podem votar; acesse aqui a cabine de votação online do seu câmpus</p>
+            </article>
 
-<main>
+            <article class="news-card">
+                <img src="img/snct.jpg" alt="SNCT">
+                <h3>IFSP: SNCT reúne atividades entre 19 e 24 de outubro</h3>
+                <p>Programação reunirá iniciativas para aproximar pesquisadores e atividades culturais</p>
+            </article>
 
-<section class="news-grid">
+            <article class="news-card">
+                <img src="img/residencia.jpg" alt="Residência Pedagógica">
+                <h3>IFSP oferece bolsa aos voluntários da Residência Pedagógica</h3>
+                <p>Bolsa de R$ 400,00 será paga pelo período de três meses</p>
+            </article>
 
-    <article class="news-card">
-        <img src="img/eleicoes.jpg" alt="Eleições IFSP">
-        <h3>Radar IFSP: informe-se sobre as eleições do dia 13 de outubro</h3>
-        <p>Todos os alunos e servidores podem votar; acesse aqui a cabine de votação online do seu câmpus</p>
-    </article>
+            <article class="news-card">
+                <img src="img/interif.jpg" alt="INTERIFS">
+                <h3>Inscrições abertas para a III Maratona InterIF</h3>
+                <p>Maratona de programação do IFSP será realizada online</p>
+            </article>
+        </section>
 
-    <article class="news-card">
-        <img src="img/snct.jpg" alt="SNCT">
-        <h3>IFSP: SNCT reúne atividades entre 19 e 24 de outubro</h3>
-        <p>Programação reunirá iniciativas para aproximar pesquisadores e atividades culturais</p>
-    </article>
+        <!-- Seção de vídeo mantida das aulas anteriores -->
+        <section class="video-section">
+            <h2>Conheça os desafios de inovação</h2>
+            <iframe width="700" height="400" 
+                src="https://www.youtube.com/embed/yVbOcB1ryh0" 
+                title="Desafios de Inovação" 
+                allowfullscreen>
+            </iframe>
+        </section>
 
-    <article class="news-card">
-        <img src="img/residencia.jpg" alt="Residência Pedagógica">
-        <h3>IFSP oferece bolsa aos voluntários da Residência Pedagógica</h3>
-        <p>Bolsa de R$ 400,00 será paga pelo período de três meses</p>
-    </article>
+    </main>
 
-    <article class="news-card">
-        <img src="img/interif.jpg" alt="INTERIFS">
-        <h3>Inscrições abertas para a III Maratona InterIF</h3>
-        <p>Maratona de programação do IFSP será realizada online</p>
-    </article>
+    <!-- Rodapé -->
+    <footer class="site-footer footer-area">
+        <img src="img/facebook.png" width="40" alt="Facebook">
+        <p>
+            IFSP - Câmpus Pirituba - Av. Mutinga, 951 - Jardim Santo Elias - CEP: 05110-000 - São Paulo/SP - Contato: (011) 2504-0100
+        </p>
+        <p style="margin-top: 10px; font-size: 0.75rem;">dwba4-semana-07-pt3037347 | Grid Layout</p>
+    </footer>
 
-</section>
-
-<section class="video-section">
-    <h2>Conheça os desafios de inovação</h2>
-
-    <iframe width="700" height="400"
-        src="https://www.youtube.com/embed/yVbOcB1ryh0"
-        allowfullscreen>
-    </iframe>
-</section>
-
-</main>
-
-<footer>
-    <img src="img/facebook.png" width="40">
-    <p>
-        IFSP - Câmpus Pirituba - Av. Mutinga, 951 - Jardim Santo Elias - CEP: 05110-000 - São Paulo/SP - Contato: (011) 2504-0100
-    </p>
-</footer>
+</div>
 
 </body>
 </html>
