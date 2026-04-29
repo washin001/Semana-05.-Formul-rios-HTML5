@@ -2,42 +2,77 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar | IFSP</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <img src="img/Logo.jpg" class="logo">
+<div class="app-container">
+    
+    <div class="header-area">
+        <nav class="topnav">
+            <ul class="menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="eventos.html">EVENTOS</a></li>
+                <li><a href="contato.html">CONTATO</a></li>
+                <li class="dropdown">
+                    <a href="#">CURSOS</a>
+                    <div class="dropdown-content">
+                        <a href="ads.html">Análise e Desenvolvimento de Sistemas</a>
+                        <a href="engproducao.html">Engenharia de Produção</a>
+                        <a href="gestaoti.html">Gestão de TI</a>
+                        <a href="gestaopublica.html">Gestão Pública</a>
+                        <a href="letras.html">Letras</a>
+                    </div>
+                </li>
+                <li class="active"><a href="login.html">ENTRAR</a></li>
+                <li class="right"><a href="sobre.html">SOBRE</a></li>
+            </ul>
+        </nav>
 
-    <nav>
-        <ul class="menu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="eventos.html">EVENTOS</a></li>
-            <li><a href="contato.html">CONTATO</a></li>
-            <li><a href="sobre.html">SOBRE</a></li>
-            <li><a href="login.html">ENTRAR</a></li>
-        </ul>
-    </nav>
-</header>
+        <div class="banner">
+            <img src="img/Logo.jpg" alt="IFSP" class="logo-banner">
+        </div>
+    </div>
 
-<main class="container">
+    <main class="main-area">
+        <div class="page-card login-card">
+            <h1 class="page-title">🔐 Entrar no Sistema</h1>
 
-<form class="card">
-<h2>Login</h2>
+            <form action="#" method="post" class="login-form">
+                <div class="form-group">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" id="usuario" name="usuario" required placeholder="Digite seu usuário">
+                </div>
 
-<input type="text" placeholder="Usuário" required>
-<input type="password" placeholder="Senha" required>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required placeholder="Digite sua senha">
+                </div>
 
-<button>Entrar</button>
-</form>
+                <div class="login-actions">
+                    <input type="submit" value="Entrar" class="btn-submit">
+                    <a href="#" class="forgot-password">Esqueci a senha</a>
+                </div>
+            </form>
 
-</main>
+            <div class="register-info">
+                <p>Não tem cadastro? <a href="eventos.html">Inscreva-se em um evento</a></p>
+            </div>
+        </div>
+    </main>
 
-<footer>
-<img src="img/facebook.png" width="40">
-</footer>
+    <footer class="site-footer">
+        <a href="https://www.facebook.com/ifsppirituba/?locale=pt_BR" target="_blank">
+            <img src="img/facebook.png" alt="Facebook" width="40">
+        </a>
+        <p>IFSP - Câmpus Pirituba - Av. Mutinga, 951 - Jardim Santo Elias - CEP: 05110-000 - São Paulo/SP - Contato: (011) 2504-0100</p>
+        <p style="margin-top: 10px; font-size: 0.75rem;">dwba4-semana-07-pt303755x | Grid Layout</p>
+    </footer>
+
+</div>
 
 </body>
 </html>
