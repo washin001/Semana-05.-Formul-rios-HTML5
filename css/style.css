@@ -1,112 +1,143 @@
 body {
-    font-family: Arial;
     margin: 0;
-    background: #f4f4f4;
+    font-family: Georgia, serif;
+    background-color: #f2f2f2;
 }
 
-header {
-    background: #003366;
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
-
-.logo {
-    width: 200px;
+.topnav {
+    background-color: #333;
+    width: 100%;
 }
 
 .menu {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 .menu li {
     position: relative;
 }
 
-.menu a {
+.menu li a {
+    display: block;
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 18px 22px;
+    font-size: 18px;
+}
+
+.menu li:hover {
+    background-color: red;
+}
+
+.active {
+    background-color: red;
+}
+
+.right {
+    margin-left: auto;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background: white;
-    min-width: 160px;
+    background-color: white;
+    min-width: 380px;
+    z-index: 1;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 14px 18px;
+    display: block;
+    text-align: left;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-.dropdown-content a {
-    display: block;
-    color: black;
-    padding: 10px;
-}
-
-.dropdown-content a:hover {
-    background: #ddd;
-}
-
-.container {
-    padding: 20px;
-    text-align: center;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.grid {
+.banner {
+    background-color: green;
+    height: 160px;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 30px;
 }
 
-.grid-layout {
+.logo-banner {
+    height: 120px;
+}
+
+.news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    padding: 60px;
+    text-align: center;
 }
 
-.destaque {
-    grid-column: span 2;
-    background: #0055aa;
-    color: white;
+.news-card img {
+    width: 420px;
+    max-width: 100%;
+}
+
+.news-card h3 {
+    font-size: 32px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.news-card p {
+    font-size: 24px;
+    margin: 0;
+}
+
+.video-section {
+    text-align: center;
+    padding: 50px;
+}
+
+.video-section h2 {
+    font-size: 48px;
+    margin-bottom: 30px;
 }
 
 footer {
-    background: #003366;
-    color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 30px;
+    font-size: 24px;
+    background-color: #f2f2f2;
 }
 
-@media (max-width: 768px) {
-    .menu {
-        flex-direction: column;
+footer img {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 1200px) {
+    .news-grid {
+        grid-template-columns: 1fr;
     }
 
-    .destaque {
-        grid-column: span 1;
+    .menu {
+        flex-wrap: wrap;
+    }
+
+    .right {
+        margin-left: 0;
+    }
+
+    .video-section iframe {
+        width: 90%;
+        height: 400px;
     }
 }
